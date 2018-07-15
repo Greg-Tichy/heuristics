@@ -22,5 +22,5 @@ def draw(tsp):
     plt.plot([p[tsp.getCount - 1][1], p[0][1]], [p[tsp.getCount - 1][2], p[0][2]])
     order += p[tsp.getCount - 1][0]
     plt.title('TSP with {} cities ({})'.format(tsp.getCount, 'circular' if tsp.Circular else 'random'))
-    plt.xlabel('order {} length = {}'.format(order, tsp.getPathLength))
+    plt.xlabel('order {} length = {}'.format(order, tsp.PathLength))
     plt.show()

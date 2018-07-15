@@ -19,11 +19,22 @@ print('running on {}'.format(sys.platform))
 
 t = tsp.TSP(15, True)
 
-# drawing.draw(t)
+tcopy = t.clone
+print(repr(tcopy.PathLength) + ' ' + repr(t.PathLength))
+print (tcopy == t)
+t = step.createnew(t, t.getCount)
+print(repr(tcopy.PathLength) + ' ' + repr(t.PathLength))
+t = tcopy.clone
+print(repr(tcopy.PathLength) + ' ' + repr(t.PathLength))
 
+print(tcopy == t)
+
+
+# drawing.draw(t)
+"""
 t0 = t.getPoints
 
-t1 = step.createnew(t, 3)
+t1 = step.createnew(t, t.getCount)
 
 drawing.draw(t1)
 
@@ -39,3 +50,4 @@ print(t0==t1)
 # print('total length (500) {}'.format(t.getPathLength))
 
 
+"""

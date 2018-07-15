@@ -1,11 +1,15 @@
 import random
 import math
-
+import copy
 
 class TSP:
     def __init__(self, howmany: int, onCircle = False) -> object:
         """
-
+        when all cities are located on a circle, there's an obvious and trivial solution. Therefore it's a good way to
+        see how heuristic algorithms find a solution. If at all...
+        Layout: we want all of them in a unit square, when layout is circular, the circle has center at (0.5, 0.5) and
+        radius 0.5
+        Distance is euclidean, see below.
         :type howmany: object
         """
         self.__count = howmany
@@ -35,7 +39,7 @@ class TSP:
         if (self.__count > 0):
             return self.__points
     @property
-    def getPathLength(self):
+    def PathLength(self):
         if self.__count < 2:
             return 0
         totalLength = 0
@@ -45,3 +49,10 @@ class TSP:
     @property
     def Circular(self):
         return self.__circular
+    @property
+    def clone(self):
+        t = TSP(0, self.__circular)
+        t.__count = self.__count
+        t.__points = copy.deepcopy(self.__points)
+        return t
+
