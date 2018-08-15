@@ -3,13 +3,13 @@ from matplotlib.path import Path
 import matplotlib.patches as patches
 import tsp
 
-def draw(tsp):
+def draw(tsp, figure,  block = False):
     a=[]
     b=[]
     for x in tsp.getPoints:
         a += [x[1]]
         b += [x[2]]
-
+    plt.figure(figure)
     plt.axis([-0.2, 1.2, -0.2, 1.2])
     plt.plot(a, b, 'g^')
     for v in tsp.getPoints:
@@ -23,4 +23,4 @@ def draw(tsp):
     order += p[tsp.getCount - 1][0]
     plt.title('TSP with {} cities ({})'.format(tsp.getCount, 'circular' if tsp.Circular else 'random'))
     plt.xlabel('order {} length = {}'.format(order, tsp.PathLength))
-    plt.show()
+    plt.show(block=block)

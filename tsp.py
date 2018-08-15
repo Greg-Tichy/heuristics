@@ -13,7 +13,7 @@ class TSP:
         :type howmany: object
         """
         self.__count = howmany
-        print('OnCircle', onCircle)
+        # print('OnCircle', onCircle)
         self.__circular = onCircle
         if self.__count > 0:
             self.__points = []

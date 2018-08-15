@@ -20,6 +20,10 @@ def generate(tsp, step=1):
 
 
 def createnew(tsp, step=1):
+    """
+
+    :type tsp: TSP
+    """
     pairs = generate(tsp, step)
     for p in pairs:
         swap(p, tsp)
